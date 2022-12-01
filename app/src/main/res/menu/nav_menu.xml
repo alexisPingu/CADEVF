@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/item_informacion"
+            android:title="@string/app_nav_manu_informacion"
+            android:icon="@drawable/ic_informacion"/>
+        <item
+            android:id="@+id/item_calificacion"
+            android:title="@string/app_nav_menu_calificaciones"
+            android:icon="@drawable/ic_calificaciones"/>
+        <item
+            android:id="@+id/item_carga"
+            android:title="@string/app_nav_manu_carga"
+            android:icon="@drawable/ic_carga"/>
+        <item
+            android:id="@+id/item_notificacion"
+            android:title="@string/app_item_notificacion"
+            android:icon="@drawable/ic_notificacion"/>
+        <item
+            android:id="@+id/item_cerrar"
+            android:title="@string/app_nav_menu_cerrar"
+            android:icon="@drawable/ic_cerrar"/>
+    </group>
+
+
+
+</menu>
