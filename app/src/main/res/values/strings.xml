@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">CADE</string>
+    <string name="app_titulo">C.A.D.E</string>
+    <string name="app_nav_manu_informacion">Información Escolar</string>
+    <string name="app_nav_menu_calificaciones">Calificaciones</string>
+    <string name="app_nav_manu_carga">Carga académica</string>
+    <string name="app_item_notificacion">Notificaciones</string>
+    <string name="app_nav_menu_cerrar">Cerrar sesión</string>
+    <string name="app_nav_header_perfil">Mi perfil</string>
+    <string name="app_header_status">Status:</string>
+    <string name="app_header_matricula">Matricula:</string>
+    <string name="app_header_carrera">Carrera:</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="app_login_incio">Inicio de sesión</string>
+    <string name="app_usuario">Usuario</string>
+    <string name="app_contrasenia">Contraseña</string>
+    <string name="app_iniciar">Iniciar Sesión</string>
+    <string name="app_sincuenta">¿No tienes cuenta?</string>
+    <string name="app_creauna">Crea una aquí</string>
+    <string name="app_olvidocontra">¿Olvidaste tu contraseña?</string>
+    <string name="app_aviso">¡Aviso Importante!</string>
+    <string name="app_regresarRegistarte">Registrarte</string>
+    <string name="app_nombre">Nombre</string>
+    <string name="app_ape1">Apellido Paterno</string>
+    <string name="app_ape2">Apellido Materno</string>
+    <string name="app_email">Email</string>
+    <string name="app_telefono">Telefono</string>
+    <string name="app_tienesCuenta">¿Ya tienes cuenta?</string>
+    <string name="app_cancelar">Cancelar</string>
+    <string name="app_registrado">Alumno registrado con éxito</string>
+    <string name="app_aceptar">Aceptar</string>
+    <string name="app_fechaNacimiento">Fecha de Nacimiento</string>
+    <string name="app_direccion">Dirección</string>
+    <string name="app_matricula">Matrícula</string>
+    <string name="app_bienvenido">Bienvenido</string>
+</resources>
