@@ -1,12 +1,15 @@
 package com.beyondthecode.cade
 
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import com.beyondthecode.cade.api.modelos.AlumnoDto
 import com.beyondthecode.cade.fragments.FragmentCalificacion
 import com.beyondthecode.cade.fragments.FragmentCarga
 import com.beyondthecode.cade.fragments.FragmentInformacion
@@ -16,6 +19,10 @@ import com.google.android.material.navigation.NavigationView
 class MainActivity : AppCompatActivity() {
     lateinit var toogle: ActionBarDrawerToggle
     lateinit var drawerLayout: DrawerLayout
+    var alumnoDto:AlumnoDto? = null
+    var txtNom:String?=null
+    var txtAp1:String?=null
+    var txtAp2:String?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -23,6 +30,23 @@ class MainActivity : AppCompatActivity() {
         drawerLayout=findViewById(R.id.drawerLayout)
         //El Navigation Drawer
         val navView: NavigationView =findViewById(R.id.nav_view)
+        //recibe datos
+        val extras = intent.extras
+        if (extras != null) {
+            alumnoDto= intent.extras!!.getSerializable("serial") as AlumnoDto?
+            Toast.makeText(applicationContext, ""+alumnoDto?.nombreAlumno, Toast.LENGTH_SHORT).show()
+            val headNom =navView.getHeaderView(0).findViewById<TextView>(R.id.nameid)
+            headNom.text=alumnoDto?.nombreAlumno
+
+            val headStatus =navView.getHeaderView(0).findViewById<TextView>(R.id.user_name)
+            headStatus.text="status: activo"
+
+            val headMatricula =navView.getHeaderView(0).findViewById<TextView>(R.id.user_matricula)
+            headMatricula.text="matricula: ${alumnoDto?.id}"
+
+            val headCarrera =navView.getHeaderView(0).findViewById<TextView>(R.id.user_carrera)
+            headCarrera.text="carrera: ${alumnoDto?.claveCarreraFk}"
+        }
 
         toogle= ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close)
         drawerLayout.addDrawerListener(toogle)
