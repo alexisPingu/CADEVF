@@ -2,24 +2,22 @@ package com.beyondthecode.cade.views
 
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
 import androidx.annotation.RequiresApi
-import com.beyondthecode.cade.clases.DatePickerFragment
+import androidx.appcompat.app.AppCompatActivity
 import com.beyondthecode.cade.Login
 import com.beyondthecode.cade.R
 import com.beyondthecode.cade.api.modelos.AlumnoDto
-import com.beyondthecode.cade.clases.MyToolBar
 import com.beyondthecode.cade.api.modelos.CarrerasDto
-import com.beyondthecode.cade.api.repositorios.AlumnoRepository
 import com.beyondthecode.cade.api.repositorios.CarrerasRepository
 import com.beyondthecode.cade.api.retrofit.ApiClientt
+import com.beyondthecode.cade.clases.DatePickerFragment
+import com.beyondthecode.cade.clases.MyToolBar
 import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.time.LocalDate
 
 class Registro : AppCompatActivity() {
     private var listC: List<CarrerasDto> = listOf()
@@ -67,11 +65,13 @@ class Registro : AppCompatActivity() {
                     */
             Toast.makeText(
                 applicationContext,
-                "no se pudo registrar, pero si... " ,
+                "no se pudo registrar, pero si... ",
                 Toast.LENGTH_LONG
-            ).show()/*
-                }
-            })*/
+            ).show()
+            startActivity(Intent(applicationContext, Matricula::class.java))
+            /*
+                    }
+                })*/
         }
 
         val itemsCarrera11: ArrayList<String> = arrayListOf<String>()

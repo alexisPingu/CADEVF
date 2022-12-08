@@ -3,17 +3,13 @@ package com.beyondthecode.cade
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.*
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.beyondthecode.cade.api.modelos.AlumnoDto
-import com.beyondthecode.cade.api.repositorios.AlumnoRepository
-import com.beyondthecode.cade.api.retrofit.ApiClientt
 import com.beyondthecode.cade.views.Registro
 import com.google.android.material.textfield.TextInputEditText
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class Login : AppCompatActivity() {
 
@@ -28,7 +24,6 @@ class Login : AppCompatActivity() {
         boton.setOnClickListener {
 
             Toast.makeText(applicationContext, "iniciando sesion", Toast.LENGTH_SHORT).show()
-            startActivity(Intent(this,MainActivity::class.java))
             /*var service = ApiClientt.getRetrofitInstance()?.create(AlumnoRepository::class.java)
             service?.getAlumnAuth(ids.text.toString(), contra.text.toString())?.enqueue(object : Callback<AlumnoDto?> {
                 override fun onResponse(
@@ -36,6 +31,7 @@ class Login : AppCompatActivity() {
                     response: Response<AlumnoDto?>
                 ) {
                     try {
+                        AlumnoOBJ.alumno=response.body()!!
                         var alumnoDto= response.body()!!
                         Toast.makeText(applicationContext, "ALUMNO: "+alumnoDto.nombreAlumno, Toast.LENGTH_SHORT).show()
 
@@ -56,7 +52,8 @@ class Login : AppCompatActivity() {
                         Toast.LENGTH_LONG
                     ).show()
                 }
-        })*/
+            })*/
+            startActivity(Intent(this, MainActivity::class.java))
         }
 
         val olvido = findViewById<TextView>(R.id.olvidoContraseña)
