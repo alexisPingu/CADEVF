@@ -27,7 +27,8 @@ class Login : AppCompatActivity() {
         val boton = findViewById<Button>(R.id.botoniniciar)
         boton.setOnClickListener {
 
-            Toast.makeText(applicationContext, "iniciando secion", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "iniciando sesion", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this,MainActivity::class.java))
             /*var service = ApiClientt.getRetrofitInstance()?.create(AlumnoRepository::class.java)
             service?.getAlumnAuth(ids.text.toString(), contra.text.toString())?.enqueue(object : Callback<AlumnoDto?> {
                 override fun onResponse(

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:weightSum="1">
+    <TextView
+        android:id="@+id/calMateria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight=".25"
+        tools:text="Logica Funcional"
+        android:textAlignment="center"/>
+    <TextView
+        android:id="@+id/calCalificacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Logica Funcional"
+        android:layout_weight=".25"
+        android:textAlignment="center"/>
+    <TextView
+        android:id="@+id/calPeriodo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Logica Funcional"
+        android:layout_weight=".25"
+        android:textAlignment="center"/>
+    <TextView
+        android:id="@+id/calFinal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Logica Funcional"
+        android:layout_weight=".25"
+        android:textAlignment="center"/>
+
+
+</LinearLayout>

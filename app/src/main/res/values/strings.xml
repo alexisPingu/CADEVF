@@ -36,4 +36,11 @@
     <string name="app_bienvenido">Bienvenido</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_escuela">TECNOLOGICO DE ESTUDIOS SUPERIORES DE JILOTEPEC</string>
+    <string name="app_generar">Generar Kardex</string>
+    <string name="app_especialidad">Especialidad</string>
+    <string name="app_carrera">Carrera</string>
+    <string name="app_periodo">Periodo de ingreso</string>
+    <string name="app_semestre">Semestre</string>
+    <string name="app_actualizar">Actualizar</string>
 </resources>
