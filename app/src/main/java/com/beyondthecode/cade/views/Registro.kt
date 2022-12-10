@@ -14,39 +14,44 @@ import com.beyondthecode.cade.api.repositorios.CarrerasRepository
 import com.beyondthecode.cade.api.retrofit.ApiClientt
 import com.beyondthecode.cade.clases.DatePickerFragment
 import com.beyondthecode.cade.clases.MyToolBar
+import com.beyondthecode.cade.databinding.ActivityRegistroBinding
 import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class Registro : AppCompatActivity() {
+    lateinit var binding: ActivityRegistroBinding
     private var listC: List<CarrerasDto> = listOf()
     private var day: Int = 0
     private var month: Int = 0
     private var year: Int = 0
 
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_registro)
+        binding=ActivityRegistroBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         MyToolBar().showATool(this, "Registrate", true)
-        val regresarIniciar = findViewById<TextView>(R.id.btnRegresarAIniciarSession)
-        regresarIniciar.setOnClickListener {
+        //val regresarIniciar = findViewById<TextView>(R.id.btnRegresarAIniciarSession)
+        binding.btnRegresarAIniciarSession.setOnClickListener {
             regresarlogin()
 
         }
-        val cancelarRegistro = findViewById<Button>(R.id.btnCancelar)
-        cancelarRegistro.setOnClickListener {
+        //val cancelarRegistro = findViewById<Button>(R.id.btnCancelar)
+        binding.btnCancelar.setOnClickListener {
             cancelar()
         }
-        val elegirFecha = findViewById<TextInputEditText>(R.id.registroFechaDeNacimiento)
-        elegirFecha.setOnClickListener {
+        //val elegirFecha = findViewById<TextInputEditText>(R.id.registroFechaDeNacimiento)
+        binding.registroFechaDeNacimiento.setOnClickListener {
             showDatePickerDialog()
         }
-        val aceptar = findViewById<Button>(R.id.btnAceptar)
-        aceptar.setOnClickListener {
-            /*
+        //val aceptar = findViewById<Button>(R.id.btnAceptar)
+        binding.btnAceptar.setOnClickListener {
+            if(isValidForm()){
+                /*
             var service = ApiClientt.getRetrofitInstance()?.create(AlumnoRepository::class.java)
             service?.addUser(obtenerDatosAlm())?.enqueue(object : Callback<AlumnoDto?> {
                 override fun onResponse(
@@ -63,15 +68,19 @@ class Registro : AppCompatActivity() {
 
                 override fun onFailure(call: Call<AlumnoDto?>, t: Throwable) {
                     */
-            Toast.makeText(
-                applicationContext,
-                "no se pudo registrar, pero si... ",
-                Toast.LENGTH_LONG
-            ).show()
-            startActivity(Intent(applicationContext, Matricula::class.java))
-            /*
-                    }
-                })*/
+                Toast.makeText(
+                    applicationContext,
+                    "no se pudo registrar, pero si... ",
+                    Toast.LENGTH_LONG
+                ).show()
+                startActivity(Intent(applicationContext, Matricula::class.java))
+                /*
+                        }
+                    })*/
+            }else{
+                Toast.makeText(this, "Faltan datos", Toast.LENGTH_SHORT).show()
+            }
+
         }
 
         val itemsCarrera11: ArrayList<String> = arrayListOf<String>()
@@ -105,14 +114,35 @@ class Registro : AppCompatActivity() {
         })
 
         val itemsGenero = arrayListOf("--Seleccione Genero--", "Masculino", "Femenino")
-        var comboGenero = findViewById<Spinner>(R.id.registroGenero)
+        //var comboGenero = findViewById<Spinner>(R.id.registroGenero)
         var adaptadorGenero =
             ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, itemsGenero);
-        comboGenero.adapter = adaptadorGenero
+        binding.registroGenero.adapter = adaptadorGenero
 
 
     }
 
+    private fun isValidForm():Boolean{
+
+        var nombre =  binding.registroNombre.text.toString()
+        var ap1 = binding.registroApe1.text.toString()
+        var ap2 = binding.registroApe2.text.toString()
+        var telefono = binding.registroTelefono.text.toString()
+        var correo = binding.registroEmail.text.toString()
+        var contra = binding.registroContraseA.text.toString()
+        var direcc = binding.registroDireccion.text.toString()
+        var fecha=binding.registroFechaDeNacimiento.text.toString()
+        //var gener = binding.registroGenero.selectedItem.toString()
+        //var carrera=binding.registroCarrera.selectedItem.toString()
+
+        if(nombre.isNotEmpty() && ap1.isNotEmpty() && ap2.isNotEmpty()
+            && telefono.isNotEmpty() && correo.isNotEmpty() && contra.isNotEmpty()
+            && direcc.isNotEmpty() && fecha.isNotEmpty() ){
+            return true
+        }
+        return false
+
+    }
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun obtenerDatosAlm(): AlumnoDto {
@@ -170,26 +200,26 @@ class Registro : AppCompatActivity() {
     }
 
     fun cancelar() {
-        val nombre = findViewById<TextInputEditText>(R.id.registroNombre)
-        nombre.setText("")
-        val ape1 = findViewById<TextInputEditText>(R.id.registroApe1)
-        ape1.setText("")
-        val ape2 = findViewById<TextInputEditText>(R.id.registroApe2)
-        ape2.setText("")
-        val email = findViewById<TextInputEditText>(R.id.registroEmail)
-        email.setText("")
-        val contraseña = findViewById<TextInputEditText>(R.id.registroContraseña)
-        contraseña.setText("")
-        val telefono = findViewById<TextInputEditText>(R.id.registroTelefono)
-        telefono.setText("")
-        val direccion = findViewById<TextInputEditText>(R.id.registroDireccion)
-        direccion.setText("")
-        val fecha = findViewById<TextInputEditText>(R.id.registroFechaDeNacimiento)
-        fecha.setText("")
-        val carrera = findViewById<Spinner>(R.id.registroCarrera)
-        carrera.setSelection(0)
-        val genero = findViewById<Spinner>(R.id.registroGenero)
-        genero.setSelection(0)
+        //val nombre = findViewById<TextInputEditText>(R.id.registroNombre)
+        binding.registroNombre.setText("")
+        //val ape1 = findViewById<TextInputEditText>(R.id.registroApe1)
+        binding.registroApe1.setText("")
+        //val ape2 = findViewById<TextInputEditText>(R.id.registroApe2)
+        binding.registroApe2.setText("")
+        //val email = findViewById<TextInputEditText>(R.id.registroEmail)
+        binding.registroEmail.setText("")
+        //val contraseña = findViewById<TextInputEditText>(R.id.registroContraseña)
+        binding.registroContraseA.setText("")
+        //val telefono = findViewById<TextInputEditText>(R.id.registroTelefono)
+        binding.registroTelefono.setText("")
+        //val direccion = findViewById<TextInputEditText>(R.id.registroDireccion)
+        binding.registroDireccion.setText("")
+        //val fecha = findViewById<TextInputEditText>(R.id.registroFechaDeNacimiento)
+        binding.registroFechaDeNacimiento.setText("")
+        //val carrera = findViewById<Spinner>(R.id.registroCarrera)
+        binding.registroCarrera.setSelection(0)
+        //val genero = findViewById<Spinner>(R.id.registroGenero)
+        binding.registroGenero.setSelection(0)
 
 
     }
