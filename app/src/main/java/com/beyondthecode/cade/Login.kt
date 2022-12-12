@@ -3,15 +3,18 @@ package com.beyondthecode.cade
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.beyondthecode.cade.api.modelos.AlumnoDto
+import com.beyondthecode.cade.api.modelos.AlumnoOBJ
+import com.beyondthecode.cade.api.repositorios.AlumnoRepository
+import com.beyondthecode.cade.api.retrofit.ApiClientt
 import com.beyondthecode.cade.databinding.ActivityLoginBinding
-import com.beyondthecode.cade.databinding.FragmentInformacionBinding
 import com.beyondthecode.cade.views.Registro
-import com.google.android.material.textfield.TextInputEditText
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class Login : AppCompatActivity() {
 
@@ -32,7 +35,7 @@ class Login : AppCompatActivity() {
             var contra=binding.contra.text.toString()
             if(isValidForm(usuario,contra)){
                 Toast.makeText(applicationContext, "iniciando sesion", Toast.LENGTH_SHORT).show()
-                /*
+
                 var service = ApiClientt.getRetrofitInstance()?.create(AlumnoRepository::class.java)
                 service?.getAlumnAuth(binding.txtID.text.toString(), binding.contra.text.toString())?.enqueue(object : Callback<AlumnoDto?> {
                     override fun onResponse(
@@ -51,9 +54,9 @@ class Login : AppCompatActivity() {
                         }catch (e :java.lang.Exception){
                             Toast.makeText(applicationContext, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
                         }
-    
+
                     }
-    
+
                     override fun onFailure(call: Call<AlumnoDto?>, t: Throwable) {
                         Toast.makeText(
                             applicationContext,
@@ -61,9 +64,8 @@ class Login : AppCompatActivity() {
                             Toast.LENGTH_LONG
                         ).show()
                     }
-                })*/
+                })
 
-                startActivity(Intent(this, MainActivity::class.java))
             }else{
                 Toast.makeText(this, "Faltan datos por llenar", Toast.LENGTH_SHORT).show()
             }

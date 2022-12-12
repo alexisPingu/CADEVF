@@ -9,67 +9,58 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.beyondthecode.cade.api.modelos.AlumnoDto
-import com.beyondthecode.cade.fragments.FragmentCalificacion
-import com.beyondthecode.cade.fragments.FragmentCarga
-import com.beyondthecode.cade.fragments.FragmentInformacion
-import com.beyondthecode.cade.fragments.FragmentNotificacion
+import com.beyondthecode.cade.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
     lateinit var toogle: ActionBarDrawerToggle
     lateinit var drawerLayout: DrawerLayout
-    var alumnoDto:AlumnoDto? = null
-    var txtNom:String?=null
-    var txtAp1:String?=null
-    var txtAp2:String?=null
+    var alumnoDto: AlumnoDto? = null
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         //Layout de Navigation Drawer
-        drawerLayout=findViewById(R.id.drawerLayout)
+        drawerLayout = findViewById(R.id.drawerLayout)
         //El Navigation Drawer
-        val navView: NavigationView =findViewById(R.id.nav_view)
+        val navView: NavigationView = binding.navView
         //recibe datos
         val extras = intent.extras
         if (extras != null) {
-            alumnoDto= intent.extras!!.getSerializable("serial") as AlumnoDto?
-            Toast.makeText(applicationContext, ""+alumnoDto?.nombreAlumno, Toast.LENGTH_SHORT).show()
-            val headNom =navView.getHeaderView(0).findViewById<TextView>(R.id.nameid)
-            headNom.text=alumnoDto?.nombreAlumno
+            alumnoDto = intent.extras!!.getSerializable("serial") as AlumnoDto?
+            Toast.makeText(applicationContext, "" + alumnoDto?.nombreAlumno, Toast.LENGTH_SHORT)
+                .show()
+            val headNom = navView.getHeaderView(0).findViewById<TextView>(R.id.nameid)
+            headNom.text = alumnoDto?.nombreAlumno
 
-            val headStatus =navView.getHeaderView(0).findViewById<TextView>(R.id.user_name)
-            headStatus.text="status: activo"
+            val headStatus = navView.getHeaderView(0).findViewById<TextView>(R.id.user_name)
+            headStatus.text = "status: activo"
 
-            val headMatricula =navView.getHeaderView(0).findViewById<TextView>(R.id.user_matricula)
-            headMatricula.text="matricula: ${alumnoDto?.id}"
+            val headMatricula = navView.getHeaderView(0).findViewById<TextView>(R.id.user_matricula)
+            headMatricula.text = "matricula: ${alumnoDto?.id}"
 
-            val headCarrera =navView.getHeaderView(0).findViewById<TextView>(R.id.user_carrera)
-            headCarrera.text="carrera: ${alumnoDto?.claveCarreraFk}"
+            val headCarrera = navView.getHeaderView(0).findViewById<TextView>(R.id.user_carrera)
+            headCarrera.text = "carrera: ${alumnoDto?.claveCarreraFk}"
         }
 
-        toogle= ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close)
-        drawerLayout.addDrawerListener(toogle)
-        toogle.syncState()
+        toogle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
+        val drawerLayout: DrawerLayout = binding.drawerLayout
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        navView.setNavigationItemSelectedListener {
-            it.isChecked=true
-            when(it.itemId){
-                R.id.item_informacion->{ remplaceFragment(FragmentInformacion(),it.title.toString()) }
-                R.id.item_calificacion->{ remplaceFragment(FragmentCalificacion(),it.title.toString()) }
-                R.id.item_carga->{ remplaceFragment(FragmentCarga(),it.title.toString()) }
-                R.id.item_notificacion->{ remplaceFragment(FragmentNotificacion(),it.title.toString()) }
-                R.id.item_cerrar->{finish()}
-            }
-            true
-        }
+        val navController = findNavController(R.id.frame)
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        setupActionBarWithNavController(navController)
+        navView.setupWithNavController(navController)
     }
     private fun remplaceFragment(fragment: Fragment, title:String){
         val fragmentManager=supportFragmentManager
         val fragmentTransaction=fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frameLayout,fragment)
+        fragmentTransaction.replace(R.id.frame, fragment)
         fragmentTransaction.commit()
         drawerLayout.closeDrawers()
         setTitle(title)

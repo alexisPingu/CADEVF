@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/item_informacion">
+
+    <fragment
+        android:id="@+id/item_informacion"
+        android:name="com.beyondthecode.cade.fragments.FragmentInformacion"
+        android:label="fragment_informacion"
+        tools:layout="@layout/fragment_informacion">
+        <action
+            android:id="@+id/action_fragmentInformacion_to_actualizarFragment"
+            app:destination="@id/actualizarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/item_calificacion"
+        android:name="com.beyondthecode.cade.fragments.FragmentCalificacion"
+        android:label="fragment_calificacion"
+        tools:layout="@layout/fragment_calificacion" />
+    <fragment
+        android:id="@+id/item_carga"
+        android:name="com.beyondthecode.cade.fragments.FragmentCarga"
+        android:label="fragment_carga"
+        tools:layout="@layout/fragment_carga" />
+    <fragment
+        android:id="@+id/item_notificacion"
+        android:name="com.beyondthecode.cade.fragments.FragmentNotificacion"
+        android:label="fragment_notificacion"
+        tools:layout="@layout/fragment_notificacion" />
+    <fragment
+        android:id="@+id/actualizarFragment"
+        android:name="com.beyondthecode.cade.fragments.ActualizarFragment"
+        android:label="fragment_actualizar"
+        tools:layout="@layout/fragment_actualizar" />
+    <activity
+        android:id="@+id/login"
+        android:name="com.beyondthecode.cade.Login"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+</navigation>

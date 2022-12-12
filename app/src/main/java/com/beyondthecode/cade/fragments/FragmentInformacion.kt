@@ -4,12 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import com.beyondthecode.cade.R
+import com.beyondthecode.cade.api.modelos.AlumnoDto
+import com.beyondthecode.cade.api.modelos.AlumnoOBJ
 import com.beyondthecode.cade.databinding.FragmentInformacionBinding
 
 class FragmentInformacion : Fragment() {
@@ -18,20 +18,25 @@ class FragmentInformacion : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         binding = FragmentInformacionBinding.inflate(layoutInflater)
-
+        var alumnn: AlumnoDto? = AlumnoOBJ.alumno
+        binding?.actNombre!!.text = alumnn!!.nombreAlumno
+        binding?.actApe1!!.text = alumnn.ape1Alumno
+        binding?.actApe2!!.text = alumnn.ape2Alumno
+        binding?.actEmail!!.text = alumnn.correoAlumno
+        binding?.actTelefono!!.text = alumnn.telefonoAlumno
+        binding?.actDireccion!!.text = alumnn.direccionAlumno
+        binding?.actFechaDeNacimiento!!.text = alumnn.fechaNacimientoAlumno
+        //especialidad
+        binding?.actCarrera!!.text = alumnn.claveCarreraFk
+        //periodo
+        //semestre
         binding?.btnActualizar!!.setOnClickListener {
-            /*remplaceFragment(ActualizarFragment())*/
+            it.findNavController().navigate(R.id.action_fragmentInformacion_to_actualizarFragment)
         }
         return binding!!.root
     }
-   /* private fun remplaceFragment(fragment: Fragment){
-        val fragmentTransaction=fragmentManager?.beginTransaction()
-        fragmentTransaction?.replace(R.id.frameLayout,fragment)
-        fragmentTransaction?.commit()
-        drawerLayout.closeDrawers()
-    }*/
 
 }
