@@ -24,7 +24,11 @@
         android:id="@+id/item_carga"
         android:name="com.beyondthecode.cade.fragments.FragmentCarga"
         android:label="Carga"
-        tools:layout="@layout/fragment_carga" />
+        tools:layout="@layout/fragment_carga" >
+        <action
+            android:id="@+id/action_item_carga_to_fragmentLllenadoCarga"
+            app:destination="@id/fragmentLllenadoCarga" />
+    </fragment>
     <fragment
         android:id="@+id/item_notificacion"
         android:name="com.beyondthecode.cade.fragments.FragmentNotificacion"
@@ -40,4 +44,14 @@
         android:name="com.beyondthecode.cade.Login"
         android:label="activity_login"
         tools:layout="@layout/activity_login" />
+    <fragment
+        android:id="@+id/item_Horario"
+        android:name="com.beyondthecode.cade.fragments.FragmentHorario"
+        android:label="Horario"
+        tools:layout="@layout/fragment_horario" />
+    <fragment
+        android:id="@+id/fragmentLllenadoCarga"
+        android:name="com.beyondthecode.cade.fragments.FragmentLllenadoCarga"
+        android:label="Llenado de Carga"
+        tools:layout="@layout/fragment_lllenado_carga" />
 </navigation>

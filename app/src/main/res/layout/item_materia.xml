@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tool="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:background="@drawable/bg_materia"
+    android:padding="20dp"
+    android:layout_marginTop="10dp">
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:text="DFSD-288-5"
+        android:textSize="15dp"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        />
+    <TextView
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:text="Programacion Logivca y funcional"
+        android:textSize="15dp"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        />
+
+
+
+
+
+
+</LinearLayout>

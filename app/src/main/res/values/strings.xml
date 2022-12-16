@@ -43,4 +43,13 @@
     <string name="app_periodo">Periodo de ingreso</string>
     <string name="app_semestre">Semestre</string>
     <string name="app_actualizar">Actualizar</string>
+    <string name="horario">Horario</string>
+    <string name="reset">Reset</string>
+    <string name="nombre_del_estudiante">Nombre del estudiante:</string>
+    <string name="numero_de_matricula">Numero de matricula:</string>
+    <string name="carrera">Carrera:</string>
+    <string name="periodo">Periodo:</string>
+    <string name="numero_celular">Numero celular:</string>
+    <string name="correo_electronico">Correo electronico:</string>
+    <string name="fecha">Fecha:</string>
 </resources>
