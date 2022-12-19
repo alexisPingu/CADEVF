@@ -10,6 +10,7 @@ import com.beyondthecode.cade.Login
 import com.beyondthecode.cade.R
 import com.beyondthecode.cade.api.modelos.AlumnoDto
 import com.beyondthecode.cade.api.modelos.CarrerasDto
+import com.beyondthecode.cade.api.repositorios.AlumnoRepository
 import com.beyondthecode.cade.api.repositorios.CarrerasRepository
 import com.beyondthecode.cade.api.retrofit.ApiClientt
 import com.beyondthecode.cade.clases.DatePickerFragment
@@ -31,7 +32,7 @@ class Registro : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding=ActivityRegistroBinding.inflate(layoutInflater)
+        binding = ActivityRegistroBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         MyToolBar().showATool(this, "Registrate", true)
@@ -50,34 +51,38 @@ class Registro : AppCompatActivity() {
         }
         //val aceptar = findViewById<Button>(R.id.btnAceptar)
         binding.btnAceptar.setOnClickListener {
-            if(isValidForm()){
-                /*
-            var service = ApiClientt.getRetrofitInstance()?.create(AlumnoRepository::class.java)
-            service?.addUser(obtenerDatosAlm())?.enqueue(object : Callback<AlumnoDto?> {
-                override fun onResponse(
-                    call: Call<AlumnoDto?>,
-                    response: Response<AlumnoDto?>
-                ) {
-                    Toast.makeText(
-                        applicationContext,
-                        "si se pudo" +
-                                "\n ${response.body()?.id} creado correctamente ",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
+            if (isValidForm()) {
+                var service = ApiClientt.getRetrofitInstance()?.create(AlumnoRepository::class.java)
+                service?.addUser(obtenerDatosAlm())?.enqueue(object : Callback<AlumnoDto?> {
+                    override fun onResponse(
+                        call: Call<AlumnoDto?>,
+                        response: Response<AlumnoDto?>
+                    ) {
+                        val intent = Intent(binding.root.context, Matricula::class.java)
+                        intent.putExtra("matricula", response.body()?.id)
+                        intent.putExtra("contrasenia", response.body()?.contraseniaAlumno)
+                        binding.root.context.startActivity(intent)
+                        finish()
+                        Toast.makeText(
+                            applicationContext,
+                            "" +
+                                    "\n ${response.body()?.id} creado correctamente ",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
 
-                override fun onFailure(call: Call<AlumnoDto?>, t: Throwable) {
-                    */
-                Toast.makeText(
-                    applicationContext,
-                    "no se pudo registrar, pero si... ",
-                    Toast.LENGTH_LONG
-                ).show()
-                startActivity(Intent(applicationContext, Matricula::class.java))
-                /*
-                        }
-                    })*/
-            }else{
+                    override fun onFailure(call: Call<AlumnoDto?>, t: Throwable) {
+
+                        Toast.makeText(
+                            applicationContext,
+                            "no se pudo registrar, pero si... ",
+                            Toast.LENGTH_LONG
+                        ).show()
+                        startActivity(Intent(applicationContext, Matricula::class.java))
+
+                    }
+                })
+            } else {
                 Toast.makeText(this, "Faltan datos", Toast.LENGTH_SHORT).show()
             }
 
@@ -122,22 +127,23 @@ class Registro : AppCompatActivity() {
 
     }
 
-    private fun isValidForm():Boolean{
+    private fun isValidForm(): Boolean {
 
-        var nombre =  binding.registroNombre.text.toString()
+        var nombre = binding.registroNombre.text.toString()
         var ap1 = binding.registroApe1.text.toString()
         var ap2 = binding.registroApe2.text.toString()
         var telefono = binding.registroTelefono.text.toString()
         var correo = binding.registroEmail.text.toString()
         var contra = binding.registroContraseA.text.toString()
         var direcc = binding.registroDireccion.text.toString()
-        var fecha=binding.registroFechaDeNacimiento.text.toString()
+        var fecha = binding.registroFechaDeNacimiento.text.toString()
         //var gener = binding.registroGenero.selectedItem.toString()
         //var carrera=binding.registroCarrera.selectedItem.toString()
 
-        if(nombre.isNotEmpty() && ap1.isNotEmpty() && ap2.isNotEmpty()
+        if (nombre.isNotEmpty() && ap1.isNotEmpty() && ap2.isNotEmpty()
             && telefono.isNotEmpty() && correo.isNotEmpty() && contra.isNotEmpty()
-            && direcc.isNotEmpty() && fecha.isNotEmpty() ){
+            && direcc.isNotEmpty() && fecha.isNotEmpty()
+        ) {
             return true
         }
         return false

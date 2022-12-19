@@ -4,7 +4,6 @@ package com.beyondthecode.cade
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
@@ -33,8 +32,6 @@ class MainActivity : AppCompatActivity() {
         val extras = intent.extras
         if (extras != null) {
             alumnoDto = intent.extras!!.getSerializable("serial") as AlumnoDto?
-            Toast.makeText(applicationContext, "" + alumnoDto?.nombreAlumno, Toast.LENGTH_SHORT)
-                .show()
             val headNom = navView.getHeaderView(0).findViewById<TextView>(R.id.nameid)
             headNom.text = alumnoDto?.nombreAlumno
 

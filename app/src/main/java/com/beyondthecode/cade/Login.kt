@@ -102,5 +102,6 @@ class Login : AppCompatActivity() {
     fun registrar() {
         val lanzar = Intent(this, Registro::class.java)
         startActivity(lanzar)
+        finish()
     }
 }

@@ -42,7 +42,7 @@ class FragmentCalificacion : Fragment() {
             ) {
                 customAdapterAl = CalificacionesAdapter(
                     binding?.root!!.context,
-                    response.body()?.calificacionBcodeDtoList
+                    response.body()?.calificacionBcodeDtoList?.sortedBy { it.semestreLlevado }
                 )
                 binding?.recyclerCalificaciones!!.adapter = customAdapterAl
                 binding?.recyclerCalificaciones!!.layoutManager =
