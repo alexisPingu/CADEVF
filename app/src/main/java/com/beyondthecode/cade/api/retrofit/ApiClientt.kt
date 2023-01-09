@@ -7,7 +7,7 @@ object ApiClientt {
 
     private var retrofit: Retrofit? = null
     private const val BASE_UR = "http://192.168.1.67:8081"
-    private const val BASE_URL = "http://ec2-18-118-155-139.us-east-2.compute.amazonaws.com:8081"
+    private const val BASE_URL = "http://ec2-3-139-56-194.us-east-2.compute.amazonaws.com:8081"
 
     fun getRetrofitInstance(): Retrofit? {
         if (retrofit == null) {

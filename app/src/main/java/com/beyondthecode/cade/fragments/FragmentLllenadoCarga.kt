@@ -49,9 +49,10 @@ class FragmentLllenadoCarga : Fragment() {
                     response: Response<List<HorarioDTOItem>?>
                 ) {
                     listMat = response.body()
+                    listMat = listMat?.sortedBy { it.idGrupoFk.numeroGrupo }
                     customAdapterAl = CargaAAdapter(
                         binding.root.context,
-                        listMat?.sortedBy { it.idGrupoFk.numeroGrupo }
+                        listMat
                     )
                     binding.recyclernomateria.adapter = customAdapterAl
                     binding.recyclernomateria.layoutManager =
