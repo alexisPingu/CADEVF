@@ -99,22 +99,27 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_margin="10dp">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/fecha"/>
+                        android:text="@string/fecha" />
+
                     <TextView
                         android:id="@+id/FechalCarga"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+        z
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/teal_700"
             android:layout_margin="10dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -185,7 +190,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="30dp"
+            app:cardCornerRadius="10dp"
             android:backgroundTint="@color/teal_700"
             android:layout_margin="10dp">
             <LinearLayout

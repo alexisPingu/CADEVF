@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -19,6 +17,7 @@
         android:textStyle="bold"
         android:textColor="@color/black"
         android:text="@string/app_escuela"/>
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -26,14 +25,14 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="40dp"
-        android:background="@drawable/corners_calificacion"
-        android:alpha=".4">
+        android:background="@drawable/bg_materia">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_margin="10dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -43,15 +42,16 @@
                     android:layout_height="60dp"
                     android:src="@drawable/ic_usuario"
                     android:layout_margin="20dp"/>
+
                 <TextView
                     android:id="@+id/calNombre"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Nombre alumno:"
-                    android:textColor="@color/white"
                     android:gravity="center_vertical"
-                    android:textStyle="bold"
-                    android:textSize="15dp"/>
+                    android:text="Nombre alumno:"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
             </LinearLayout>
             <TextView
                 android:id="@+id/calMatricula"
@@ -73,6 +73,7 @@
                 android:layout_marginBottom="15dp"/>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerCalificaciones"
+                tools:listitem="@layout/item_califacion"
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
                 android:layout_marginBottom="10dp"

@@ -120,7 +120,7 @@ class FragmentLllenadoCarga : Fragment() {
                             AlumnoOBJ.alumno!!.id,
                             textview.text.toString(),
                             ck,
-                            "1",
+                            "0",
                             textview3.text.substring(1, 2)
                         )
                     )
