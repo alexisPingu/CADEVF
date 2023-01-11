@@ -235,7 +235,7 @@ class Registro : AppCompatActivity() {
         this.month = month
         this.day = day
         val elegirFecha = findViewById<TextInputEditText>(R.id.registroFechaDeNacimiento)
-        elegirFecha.setText("$year-$month-$day")
+        elegirFecha.setText("$year-${month + 1}-$day")
     }
 
 
