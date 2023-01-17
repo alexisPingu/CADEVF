@@ -1,6 +1,7 @@
 package com.beyondthecode.cade.api.repositorios
 
 import com.beyondthecode.cade.api.modelos.CargaA
+import com.beyondthecode.cade.api.modelos.CargaSemestreStatusItem
 import com.beyondthecode.cade.api.modelos.cargaRespDTO.CargaDto
 import retrofit2.Call
 import retrofit2.http.*
@@ -15,4 +16,7 @@ interface CargaAcademicaRepository {
 
     @GET("/carga/exist/id/{id}/")
     fun getExistCarga(@Path("id") num: String): Call<Boolean>
+
+    @GET("/carga/semestres-c/id/{id}/")
+    fun getCargasSemestresStatus(@Path("id") num: String): Call<List<CargaSemestreStatusItem>>
 }

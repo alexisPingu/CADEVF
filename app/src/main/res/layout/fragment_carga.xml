@@ -15,7 +15,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cargar materia"
-        android:enabled="false"
         android:layout_gravity="center"
         android:background="@drawable/bg_materia"
         android:textColor="@color/white"/>
