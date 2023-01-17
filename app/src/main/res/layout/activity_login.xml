@@ -58,6 +58,7 @@
                         app:boxCornerRadiusBottomEnd="30dp"
                         app:boxCornerRadiusBottomStart="30dp">
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtID"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/app_usuario"
@@ -76,6 +77,7 @@
                         app:boxCornerRadiusBottomEnd="30dp"
                         app:boxCornerRadiusBottomStart="30dp">
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/contra"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="textPassword"

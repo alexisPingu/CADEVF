@@ -34,4 +34,25 @@
     <string name="app_direccion">Dirección</string>
     <string name="app_matricula">Matrícula</string>
     <string name="app_bienvenido">Bienvenido</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_escuela">TECNOLOGICO DE ESTUDIOS SUPERIORES DE JILOTEPEC</string>
+    <string name="app_generar">Generar Kardex</string>
+    <string name="app_especialidad">Especialidad</string>
+    <string name="app_carrera">Carrera</string>
+    <string name="app_periodo">Periodo de ingreso</string>
+    <string name="app_semestre">Semestre</string>
+    <string name="app_actualizar">Actualizar</string>
+    <string name="horario">Horario</string>
+    <string name="reset">Reset</string>
+    <string name="nombre_del_estudiante">Nombre del estudiante:</string>
+    <string name="numero_de_matricula">Numero de matricula:</string>
+    <string name="carrera">Carrera:</string>
+    <string name="periodo">Periodo:</string>
+    <string name="numero_celular">Numero celular:</string>
+    <string name="correo_electronico">Correo electronico:</string>
+    <string name="fecha">Fecha:</string>
+    <string name="contrase_a">contraseña</string>
+    <string name="sugerencia">por favor guardar usuario y contraseña</string>
+    <string name="salir">salir</string>
 </resources>
