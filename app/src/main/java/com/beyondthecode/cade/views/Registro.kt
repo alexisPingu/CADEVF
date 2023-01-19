@@ -187,7 +187,13 @@ class Registro : AppCompatActivity() {
                 } else {
                     "0$month"
                 }
-            }-$day",
+            }-${
+                if (day >= 10) {
+                    day
+                } else {
+                    "0$day"
+                }
+            }",
             contra.text.toString(),
             gen,
             listC[index].id.toString()
